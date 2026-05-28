@@ -87,8 +87,6 @@ The **Ask Your Data** tab supports plain-English analysis requests and does not 
 
 Supported Ask Your Data actions include summary/descriptive statistics, missing-value and data-quality reports, outlier detection, correlation ranking and heatmaps, scatter/regression/histogram/KDE/box/violin/bar/count/line/pie/stacked/area/scatter-matrix/3D charts, cross-tabulation, chi-square, t-test, ANOVA, Mann-Whitney U, Kruskal-Wallis, linear/logistic regression, random forest, decision tree, and feature-importance workflows. If a request is ambiguous, the app asks you to choose valid columns from the uploaded dataset instead of guessing or crashing.
 
-<<<<<<< HEAD
-=======
 ## JMP workflow support
 
 The app can now hand the same cleaned dataset and analysis plan to JMP:
@@ -100,7 +98,6 @@ The app can now hand the same cleaned dataset and analysis plan to JMP:
 
 JMP execution happens in desktop JMP because Streamlit Community Cloud cannot host the proprietary JMP runtime. The browser app still computes validated results locally with Python, while the generated JSL lets analysts reproduce or extend the workflow in JMP.
 
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
 ## Streamlit Community Cloud deployment
 
 1. Push this repository to GitHub.
