@@ -62,14 +62,11 @@ from ask_your_data_engine import (
     suggest_smart_actions,
 )
 
-<<<<<<< HEAD
-=======
 from jmp_export import (
     generate_jmp_full_workflow_script,
     generate_jmp_script_for_analysis,
 )
 
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
 
 ALPHA = 0.05
 MAX_DISTINCT_CATEGORIES = 60
@@ -2202,9 +2199,6 @@ def build_business_report(df: pd.DataFrame, original_df: pd.DataFrame, cleaning_
 # -----------------------------------------------------------------------------
 # Ask Your Data execution display helpers
 # -----------------------------------------------------------------------------
-<<<<<<< HEAD
-def display_analysis_result(result: AnalysisResult, message_id: str | None = None, show_code: bool = False) -> None:
-=======
 def display_analysis_result(
     result: AnalysisResult,
     message_id: str | None = None,
@@ -2212,7 +2206,6 @@ def display_analysis_result(
     df_for_jmp: pd.DataFrame | None = None,
     source_filename: str = "cleaned_dataset.csv",
 ) -> None:
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
     """Render a safe Ask Your Data analysis result in a consistent expert format."""
     if result.warning:
         st.info(result.warning)
@@ -2252,8 +2245,6 @@ def display_analysis_result(
     if show_code and result.code:
         st.code(result.code, language="python")
 
-<<<<<<< HEAD
-=======
     if df_for_jmp is not None:
         jmp_script = generate_jmp_script_for_analysis(None, result, df_for_jmp, source_filename)
         safe_intent = chart_key_part(result.intent)
@@ -2267,7 +2258,6 @@ def display_analysis_result(
             help="Run this script in JMP and choose the cleaned dataset exported from this app.",
         )
 
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
 
 def store_analysis_memory(question: str, detected: AnalysisIntent, result: AnalysisResult) -> None:
     """Persist compact analysis memory for follow-up questions and reports."""
@@ -2406,13 +2396,8 @@ with st.sidebar:
     st.header("3) Analysis sections")
     selected_sections = st.multiselect(
         "Show sections",
-<<<<<<< HEAD
-        ["Dataset Overview", "Storytelling Dashboard", "Summary Analysis", "Descriptive Statistics", "Categorical Analysis", "Inferential Tests", "Regression Modeling", "Machine Learning", "Visualizations", "Ask Your Data", "Export Report", "Business Report"],
-        default=["Dataset Overview", "Storytelling Dashboard", "Summary Analysis", "Descriptive Statistics", "Categorical Analysis", "Inferential Tests", "Regression Modeling", "Machine Learning", "Visualizations", "Ask Your Data", "Export Report", "Business Report"],
-=======
         ["Dataset Overview", "Storytelling Dashboard", "Summary Analysis", "Descriptive Statistics", "Categorical Analysis", "Inferential Tests", "Regression Modeling", "Machine Learning", "Visualizations", "Ask Your Data", "JMP Workflow", "Export Report", "Business Report"],
         default=["Dataset Overview", "Storytelling Dashboard", "Summary Analysis", "Descriptive Statistics", "Categorical Analysis", "Inferential Tests", "Regression Modeling", "Machine Learning", "Visualizations", "Ask Your Data", "JMP Workflow", "Export Report", "Business Report"],
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
     )
 
     st.header("Theme/help notes")
@@ -2447,10 +2432,7 @@ summary_text = generate_summary_analysis(df, original_df, cleaning_notes, st.ses
     ml_tab,
     visualization_tab,
     ask_tab,
-<<<<<<< HEAD
-=======
     jmp_tab,
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
     export_tab,
     business_report_tab,
 ) = st.tabs(
@@ -2465,10 +2447,7 @@ summary_text = generate_summary_analysis(df, original_df, cleaning_notes, st.ses
         "Machine Learning",
         "Visualizations",
         "Ask Your Data",
-<<<<<<< HEAD
-=======
         "JMP Workflow",
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
         "Export Report",
         "Business Report",
     ]
@@ -3113,11 +3092,7 @@ with ask_tab:
                 with st.chat_message(message["role"]):
                     st.markdown(message["content"])
                     if message.get("analysis_result"):
-<<<<<<< HEAD
-                        display_analysis_result(message["analysis_result"], message_id=message["id"], show_code=message.get("show_code", False))
-=======
                         display_analysis_result(message["analysis_result"], message_id=message["id"], show_code=message.get("show_code", False), df_for_jmp=df, source_filename=uploaded_file.name)
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
 
         if st.session_state.pending_analysis_request:
             pending = st.session_state.pending_analysis_request
@@ -3211,8 +3186,6 @@ with ask_tab:
     else:
         st.info("Ask Your Data is hidden by the sidebar section selector.")
 
-<<<<<<< HEAD
-=======
 with jmp_tab:
     if "JMP Workflow" in selected_sections:
         st.subheader("JMP Workflow")
@@ -3260,7 +3233,6 @@ with jmp_tab:
         st.info("JMP Workflow is hidden by the sidebar section selector.")
 
 
->>>>>>> 5e2fcff5cd47b83bf515dfa32701052e7de2592d
 with export_tab:
     if "Export Report" in selected_sections:
         st.subheader("Export report and tables")
